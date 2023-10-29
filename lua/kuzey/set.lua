@@ -1,22 +1,30 @@
-vim.opt.nu = true
+local options = {
+  nu = true
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+  tabstop = 2
+  softtabstop = 2
+  shiftwidth = 2
+  expandtab = true
 
-vim.opt.smartindent = true
-vim.opt.wrap = false
+  smartindent = true
+  wrap = false
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+  hlsearch = false
+  incsearch = true
 
-vim.opt.termguicolors = true
+  termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+  scrolloff = 8
+  signcolumn = "yes"
 
-vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+  updatetime = 50
+  colorcolumn = "80"
+}
+
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
 
 vim.g.mapleader = " "
