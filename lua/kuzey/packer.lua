@@ -24,7 +24,12 @@ return require('packer').startup(function(use)
   -- use({ 'rose-pine/neovim', as = 'rose-pine' })
   -- vim.cmd('colorscheme rose-pine')
   use ({ 'projekt0n/github-nvim-theme' })
-  vim.cmd('colorscheme github_dark')
+  vim.cmd('colorscheme github_dark_tritanopia')
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
