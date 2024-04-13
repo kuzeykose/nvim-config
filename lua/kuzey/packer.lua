@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -21,10 +20,10 @@ return require('packer').startup(function(use)
     },
  }
 
-  -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-  -- vim.cmd('colorscheme rose-pine')
+  -- COLOR --
   use ({ 'projekt0n/github-nvim-theme' })
-  vim.cmd('colorscheme github_dark_tritanopia')
+  use({'huyvohcmc/atlas.vim'})
+
 
   use {
     'nvim-lualine/lualine.nvim',
