@@ -20,13 +20,16 @@ return require('packer').startup(function(use)
         },
     }
 
+    use { 'preservim/nerdcommenter' }
+
     -- INTDENT LINE --
     use({ "lukas-reineke/indent-blankline.nvim" })
 
     -- COLOR --
     use({ 'projekt0n/github-nvim-theme' })
+    use({ 'nyoom-engineering/oxocarbon.nvim' })
+    use({ "EdenEast/nightfox.nvim" })
     use({ 'huyvohcmc/atlas.vim' })
-
 
     use {
         'nvim-lualine/lualine.nvim',

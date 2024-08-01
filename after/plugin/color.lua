@@ -5,7 +5,7 @@ end
 function ThemeOptionsChange()
     local options = {
         "atlas",
-        "github_dark_tritanopia",
+        "oxocarbon",
         "github_dark",
         "github_dark_default",
         "github_dark_colorblind",
@@ -13,7 +13,14 @@ function ThemeOptionsChange()
         "github_dark_tritanopia",
         "github_light",
         "github_light_default",
-        "github_light_high_contrast"
+        "github_light_high_contrast",
+        "nightfox",
+        "dayfox",
+        "dawnfox",
+        "duskfox",
+        "nordfox",
+        "terafox",
+        "carbonfox"
     }
 
     for i, option in ipairs(options) do
