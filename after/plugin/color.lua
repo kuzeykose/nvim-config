@@ -39,4 +39,4 @@ function ThemeOptionsChange()
     end
 end
 
-ChangeTheme("atlas")
+ChangeTheme("carbonfox")
