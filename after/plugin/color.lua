@@ -4,8 +4,6 @@ end
 
 function ThemeOptionsChange()
     local options = {
-        "atlas",
-        "oxocarbon",
         "github_dark",
         "github_dark_default",
         "github_dark_colorblind",
@@ -14,13 +12,6 @@ function ThemeOptionsChange()
         "github_light",
         "github_light_default",
         "github_light_high_contrast",
-        "nightfox",
-        "dayfox",
-        "dawnfox",
-        "duskfox",
-        "nordfox",
-        "terafox",
-        "carbonfox"
     }
 
     for i, option in ipairs(options) do
@@ -28,8 +19,6 @@ function ThemeOptionsChange()
     end
 
     local choice_str = vim.fn.input("Enter your choice: ")
-    -- io.write("Enter your choice: ")
-    -- local choice_str = io.read()
     local choice = tonumber(choice_str)
 
     if choice and choice >= 1 and choice <= #options then
@@ -39,4 +28,4 @@ function ThemeOptionsChange()
     end
 end
 
-ChangeTheme("carbonfox")
+ChangeTheme("github_dark_default")

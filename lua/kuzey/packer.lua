@@ -27,9 +27,6 @@ return require('packer').startup(function(use)
 
     -- COLOR --
     use({ 'projekt0n/github-nvim-theme' })
-    use({ 'nyoom-engineering/oxocarbon.nvim' })
-    use({ "EdenEast/nightfox.nvim" })
-    use({ 'huyvohcmc/atlas.vim' })
 
     use {
         'nvim-lualine/lualine.nvim',
