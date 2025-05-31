@@ -1,12 +1,19 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'gopls',
-    'jdtls'
-    -- 'java-language-server'
+-- Do NOT use `lsp.ensure_installed` in v2
+-- Instead use mason-lspconfig directly:
+require("mason").setup({})
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        'tsserver',
+        'eslint',
+        'gopls',
+        'jdtls',
+    },
+    handlers = {
+        lsp.default_setup,
+    },
 })
 
 lsp.on_attach(function(client, bufnr)
