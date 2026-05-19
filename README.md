@@ -109,6 +109,51 @@ Removes every symlink this repo owns from `$HOME`. If a backup exists in
 `~/.dotfiles_backup/`, the most recent copy is restored in place. The repo
 itself is untouched — delete `~/dotfiles` manually if you want it gone.
 
+## Cheatsheet
+
+`cheatsheet.html` is a standalone, single-file reference page covering all
+keybindings and settings. No server or build step needed — open it directly in
+a browser:
+
+```sh
+open ~/dotfiles/cheatsheet.html       # macOS
+xdg-open ~/dotfiles/cheatsheet.html   # Linux
+```
+
+Covers: Neovim navigation · editing · LSP · autocompletion · git · avante.nvim · tmux.
+
+## AI (avante.nvim)
+
+The Neovim config includes [avante.nvim](https://github.com/yetone/avante.nvim),
+a Claude-powered AI assistant embedded in the editor.
+
+**First-time setup:**
+
+```sh
+export ANTHROPIC_API_KEY=your-key   # add to ~/.zshrc or ~/.profile
+```
+
+Then inside Neovim:
+
+```
+:PackerSync
+```
+
+**Key bindings (leader = Space):**
+
+| Key | Action |
+|-----|--------|
+| `<leader>aa` | Ask Claude about current code |
+| `<leader>ae` | Edit selected code with Claude |
+| `<leader>at` | Toggle chat sidebar |
+| `<leader>af` | Focus sidebar |
+| `<leader>ar` | Refresh last response |
+| `co` / `ct` | Accept your / Claude's diff |
+| `]x` / `[x` | Jump between diff hunks |
+
+**Typical workflow:** visually select code → `<leader>ae` → describe the
+change → `Ctrl+s` to submit → accept or reject the diff.
+
 ## What's intentionally not tracked
 
 - SSH keys, GPG keys, auth tokens, `.env` files (see `.gitignore`)
