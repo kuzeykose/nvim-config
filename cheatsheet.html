@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kuzey · cheatsheet</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f8f8f8;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --green: #16a34a;
+      --green-soft: #f0fdf4;
+      --purple: #7c3aed;
+      --purple-soft: #f5f3ff;
+      --orange: #ea580c;
+      --orange-soft: #fff7ed;
+      --red: #dc2626;
+      --red-soft: #fef2f2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 48px 24px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    .header-pills {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Colored section accents */
+    .sect-nav   .section-label { color: var(--accent);  border-color: var(--accent-soft); }
+    .sect-edit  .section-label { color: var(--green);   border-color: var(--green-soft);  }
+    .sect-lsp   .section-label { color: var(--purple);  border-color: var(--purple-soft); }
+    .sect-cmp   .section-label { color: var(--orange);  border-color: var(--orange-soft); }
+    .sect-git   .section-label { color: var(--red);     border-color: var(--red-soft);    }
+    .sect-ai    .section-label { color: var(--accent);  border-color: var(--accent-soft); }
+    .sect-tmux  .section-label { color: var(--green);   border-color: var(--green-soft);  }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    tr + tr td {
+      border-top: 1px solid var(--border);
+    }
+    td {
+      padding: 7px 4px;
+      vertical-align: middle;
+    }
+    td:last-child {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: right;
+    }
+
+    /* kbd styling */
+    kbd {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+      font-size: 0.78rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom-width: 2px;
+      border-radius: 4px;
+      padding: 1px 6px;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .sep { color: var(--muted); margin: 0 2px; font-size: 0.75rem; }
+
+    /* Note / tip */
+    .note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 12px;
+      padding: 8px 12px;
+      background: var(--surface);
+      border-radius: 6px;
+      border-left: 3px solid var(--border);
+    }
+    .note strong { color: var(--text); }
+
+    /* Settings grid */
+    .settings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      font-size: 0.82rem;
+    }
+    .settings-row {
+      display: contents;
+    }
+    .settings-row > span {
+      padding: 6px 4px;
+      border-top: 1px solid var(--border);
+    }
+    .settings-row:first-child > span { border-top: none; }
+    .settings-row > span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* Tmux prefix callout */
+    .callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cheatsheet</h1>
+  <p>Neovim · Tmux · avante.nvim (Claude)</p>
+  <div class="header-pills">
+    <span class="pill">leader = Space</span>
+    <span class="pill">tmux prefix = Ctrl+b</span>
+    <span class="pill">4-space indent</span>
+    <span class="pill">Gruvbox theme</span>
+  </div>
+</header>
+
+<div class="grid">
+
+  <!-- ── LEFT COLUMN ─────────────────────────── -->
+  <div>
+
+    <section class="sect-nav">
+      <div class="section-label">Navigation &amp; Files</div>
+      <table>
+        <tr><td><kbd>&lt;leader&gt;pv</kbd></td><td>Open netrw</td></tr>
+        <tr><td><kbd>&lt;leader&gt;t</kbd></td><td>Toggle NvimTree sidebar</td></tr>
+        <tr><td><kbd>&lt;leader&gt;pf</kbd></td><td>Find files (Telescope)</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>p</kbd></td><td>Find git files (Telescope)</td></tr>
+        <tr><td><kbd>&lt;leader&gt;ps</kbd></td><td>Grep string</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vh</kbd></td><td>Search help tags</td></tr>
+      </table>
+      <p class="note">Telescope auto-syncs NvimTree when opening a file.</p>
+    </section>
+
+    <section class="sect-edit">
+      <div class="section-label">Editing</div>
+      <table>
+        <tr><td><kbd>J</kbd> / <kbd>K</kbd> <span class="sep">visual</span></td><td>Move selection down / up</td></tr>
+        <tr><td><kbd>J</kbd> <span class="sep">normal</span></td><td>Join line (cursor stays)</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>d</kbd></td><td>Scroll down, keep centered</td></tr>
+        <tr><td><kbd>n</kbd> / <kbd>N</kbd></td><td>Search results, centered</td></tr>
+        <tr><td><kbd>&lt;leader&gt;y</kbd> <span class="sep">visual</span></td><td>Yank to system clipboard</td></tr>
+        <tr><td><kbd>&lt;leader&gt;p</kbd> <span class="sep">visual</span></td><td>Paste, keep clipboard</td></tr>
+        <tr><td><kbd>&lt;leader&gt;f</kbd></td><td>Format file (LSP → Black)</td></tr>
+        <tr><td><kbd>&lt;leader&gt;u</kbd></td><td>Toggle Undotree</td></tr>
+      </table>
+    </section>
+
+    <section class="sect-git">
+      <div class="section-label">Git</div>
+      <table>
+        <tr><td><kbd>&lt;leader&gt;gs</kbd></td><td>Git status (Fugitive)</td></tr>
+        <tr><td><code>:DiffviewOpen</code></td><td>Side-by-side diff</td></tr>
+        <tr><td><code>:DiffviewClose</code></td><td>Close diff</td></tr>
+      </table>
+    </section>
+
+    <section class="sect-ai">
+      <div class="section-label">AI — avante.nvim (Claude)</div>
+      <table>
+        <tr><td><kbd>&lt;leader&gt;aa</kbd></td><td>Ask Claude</td></tr>
+        <tr><td><kbd>&lt;leader&gt;ae</kbd></td><td>Edit selection with Claude</td></tr>
+        <tr><td><kbd>&lt;leader&gt;at</kbd></td><td>Toggle sidebar</td></tr>
+        <tr><td><kbd>&lt;leader&gt;af</kbd></td><td>Focus sidebar</td></tr>
+        <tr><td><kbd>&lt;leader&gt;ar</kbd></td><td>Refresh response</td></tr>
+        <tr><td><kbd>co</kbd> / <kbd>ct</kbd></td><td>Accept our / their diff</td></tr>
+        <tr><td><kbd>ca</kbd></td><td>Accept all theirs</td></tr>
+        <tr><td><kbd>]x</kbd> / <kbd>[x</kbd></td><td>Next / prev diff hunk</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>s</kbd> <span class="sep">insert</span></td><td>Submit prompt</td></tr>
+      </table>
+      <p class="note"><strong>Requires:</strong> <code>ANTHROPIC_API_KEY</code> env var. Install with <code>:PackerSync</code>.</p>
+    </section>
+
+  </div>
+
+  <!-- ── RIGHT COLUMN ────────────────────────── -->
+  <div>
+
+    <section class="sect-lsp">
+      <div class="section-label">LSP</div>
+      <table>
+        <tr><td><kbd>gd</kbd></td><td>Go to definition</td></tr>
+        <tr><td><kbd>K</kbd></td><td>Hover documentation</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vca</kbd></td><td>Code actions</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vrn</kbd></td><td>Rename symbol</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vrr</kbd></td><td>References</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vws</kbd></td><td>Workspace symbols</td></tr>
+        <tr><td><kbd>&lt;leader&gt;vd</kbd></td><td>Diagnostic float</td></tr>
+        <tr><td><kbd>]d</kbd> / <kbd>[d</kbd></td><td>Next / prev diagnostic</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>h</kbd> <span class="sep">insert</span></td><td>Signature help</td></tr>
+      </table>
+      <p class="note"><strong>Servers:</strong> eslint, html, cssls, jsonls, tailwindcss, lua_ls, rust_analyzer</p>
+    </section>
+
+    <section class="sect-cmp">
+      <div class="section-label">Autocompletion (nvim-cmp)</div>
+      <table>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>n</kbd></td><td>Next item</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>p</kbd></td><td>Previous item</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>y</kbd></td><td>Confirm selection</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Space</kbd></td><td>Trigger completion</td></tr>
+      </table>
+    </section>
+
+    <section class="sect-tmux">
+      <div class="section-label">Tmux — Panes &amp; Windows</div>
+      <div class="callout">Prefix: <kbd>Ctrl</kbd>+<kbd>b</kbd></div>
+      <table>
+        <tr><td><kbd>prefix</kbd> <kbd>r</kbd></td><td>Reload config</td></tr>
+        <tr><td><kbd>prefix</kbd> <kbd>|</kbd></td><td>Split horizontal (same path)</td></tr>
+        <tr><td><kbd>prefix</kbd> <kbd>-</kbd></td><td>Split vertical (same path)</td></tr>
+        <tr><td><kbd>prefix</kbd> <kbd>h/j/k/l</kbd></td><td>Move between panes</td></tr>
+        <tr><td><kbd>prefix</kbd> <kbd>H/J/K/L</kbd></td><td>Resize pane by 5 (repeatable)</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">Tmux Settings</div>
+      <div class="settings">
+        <div class="settings-row"><span>Mouse</span><span>enabled</span></div>
+        <div class="settings-row"><span>History</span><span>50,000 lines</span></div>
+        <div class="settings-row"><span>Window index</span><span>starts at 1</span></div>
+        <div class="settings-row"><span>Mode keys</span><span>vi</span></div>
+        <div class="settings-row"><span>Escape time</span><span>10ms</span></div>
+        <div class="settings-row"><span>Colors</span><span>true color (RGB)</span></div>
+        <div class="settings-row"><span>Auto-renumber</span><span>on</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Nvim Settings</div>
+      <div class="settings">
+        <div class="settings-row"><span>Indent</span><span>4 spaces</span></div>
+        <div class="settings-row"><span>Line numbers</span><span>on</span></div>
+        <div class="settings-row"><span>Word wrap</span><span>off</span></div>
+        <div class="settings-row"><span>Swap / backup</span><span>off</span></div>
+        <div class="settings-row"><span>Search highlight</span><span>off (incremental)</span></div>
+        <div class="settings-row"><span>Scroll offset</span><span>8 lines</span></div>
+        <div class="settings-row"><span>Update time</span><span>50ms</span></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <span>kuzey · dotfiles</span>
+  <span>nvim (packer) · tmux · avante.nvim</span>
+</footer>
+
+</body>
+</html>
