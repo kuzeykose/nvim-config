@@ -8,6 +8,10 @@ require("nvim-tree").setup({
     filters = {
         dotfiles = true,
     },
+    update_focused_file = {
+        enable = true,
+        update_root = false,
+    },
 })
 
 vim.keymap.set('n', '<leader>t', "<cmd>NvimTreeToggle<cr>", {})
